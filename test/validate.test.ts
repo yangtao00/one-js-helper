@@ -1,5 +1,3 @@
-// __tests__/emailValidator.test.ts
-
 import { validateEmail } from "../src";
 
 describe("Email Validator", () => {

@@ -13,6 +13,21 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    // 自定义规则
-  }
+    '@typescript-eslint/ban-ts-comment': 'off',
+    quotes: ['error', 'single'],
+    semi: ['warn', 'always'],
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
+    '@typescript-eslint/no-unused-vars': 'warn',
+    'prefer-const': 'error',
+    eqeqeq: 'error',
+    '@typescript-eslint/ban-types': [
+      'error',
+      {
+        extendDefaults: true,
+        types: {
+          Function: false,
+        },
+      },
+    ],
+  },
 };
