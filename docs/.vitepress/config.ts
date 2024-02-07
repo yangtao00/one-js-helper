@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress';
 export default defineConfig({
+  base: '/one-js-helper/',
   title: 'one-js-helper',
   description: '一个js工具库',
   lang: 'zh-CN',
