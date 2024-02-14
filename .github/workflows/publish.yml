@@ -7,28 +7,27 @@ on:
     branches: [main]
 
 jobs:
-  setup:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node.js and pnpm
-        uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install -g pnpm
-
-  build:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - uses: setup
-      - run: pnpm install
-
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build bundle
+        run: pnpm bundle:build
   publish:
-    needs: setup
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: setup
       - run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
