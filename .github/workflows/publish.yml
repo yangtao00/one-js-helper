@@ -36,7 +36,7 @@ jobs:
           git config --global user.name "${{ secrets.GIT_USERNAME }}"
       - name: Bump version and push to Git
         run: |
-          npm version patch -m "Bump version to %s [skip ci]"
+          npm version patch -m "ci: Bump version to %s [skip ci]"
           git push origin main
       - run: pnpm publish
         env:
