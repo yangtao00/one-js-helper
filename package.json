@@ -18,7 +18,7 @@
     "docs:preview": "vitepress preview docs",
     "test": "jest",
     "bundle:build": "rollup -c",
-    "bundle:publish": "npm publish --registry https://registry.npmjs.org"
+    "bundle:publish": "npm publish"
   },
   "lint-staged": {
     "*.{ts,js}": [
