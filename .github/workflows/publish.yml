@@ -6,11 +6,6 @@ on:
   push:
     branches: [main]
 
-# 提取公共步骤到一个单独的作业
-defaults:
-  run:
-    shell: bash
-
 jobs:
   setup:
     runs-on: ubuntu-latest
@@ -29,7 +24,7 @@ jobs:
       - uses: setup
       - run: pnpm install
 
-  publish-npm:
+  publish:
     needs: setup
     runs-on: ubuntu-latest
     steps:
