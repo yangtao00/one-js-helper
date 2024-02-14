@@ -28,6 +28,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Configure Git identity
+        run: |
+          git config --global user.email "15716411327@163.com"
+          git config --global user.name "yangtao00"
       - name: Checkout
         uses: actions/checkout@v4
         with:
