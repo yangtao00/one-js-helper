@@ -1,12 +1,12 @@
-const typescript = require('@rollup/plugin-typescript');
-const { terser } = require('rollup-plugin-terser');
+import typescript from '@rollup/plugin-typescript';
+import { terser } from 'rollup-plugin-terser';
 
-module.exports = {
+export default {
   input: 'src/index.ts', // 入口文件路径
   output: [
     {
       file: 'dist/bundle.esm.js',
-      format: 'esm',
+      format: 'es',
       sourcemap: true,
     },
     {

@@ -55,5 +55,8 @@
         "@algolia/client-search"
       ]
     }
+  },
+  "dependencies": {
+    "tslib": "^2.6.2"
   }
 }
