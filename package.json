@@ -1,6 +1,6 @@
 {
   "name": "one-js-helper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "一个JavaScript工具库",
   "type": "module",
   "main": "dist/bundile.cjs.js",
@@ -18,7 +18,7 @@
     "docs:preview": "vitepress preview docs",
     "test": "jest",
     "bundle:build": "rollup -c",
-    "bundle:publish": "npm version patch && npm publish --registry https://registry.npmjs.org"
+    "bundle:publish": "npm publish --registry https://registry.npmjs.org"
   },
   "lint-staged": {
     "*.{ts,js}": [
