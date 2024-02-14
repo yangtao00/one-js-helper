@@ -1,6 +1,6 @@
 {
   "name": "one-js-helper",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "一个JavaScript工具库",
   "type": "module",
   "main": "dist/bundile.cjs.js",
