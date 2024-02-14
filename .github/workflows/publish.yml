@@ -30,12 +30,10 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm install -g pnpm
       - run: pnpm install
-      - name: Configure Git with PAT
+      - name: configuration Git
         run: |
           git config --global user.email "15716411327@163.com"
           git config --global user.name "yangtao00"
-          git remote rm origin
-          git remote add origin https://$GIT_TOKEN@github.com/yangtao00/one-js-helper.git
       - name: Bump version and push to Git
         run: |
           npm version patch -m "ci: release version to %s [skip ci]"
