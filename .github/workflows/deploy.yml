@@ -32,6 +32,8 @@ jobs:
         run: |
           git config --global user.email "15716411327@163.com"
           git config --global user.name "yangtao00"
+      - name: Authenticate with npm
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
       - name: Checkout
         uses: actions/checkout@v4
         with:
