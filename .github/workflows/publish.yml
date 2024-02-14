@@ -6,8 +6,13 @@ on:
   push:
     branches: [main]
 
+# 提取公共步骤到一个单独的作业
+defaults:
+  run:
+    shell: bash
+
 jobs:
-  build:
+  setup:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,20 +21,19 @@ jobs:
         with:
           node-version: 20
       - run: npm install -g pnpm
+
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: setup
       - run: pnpm install
 
   publish-npm:
-    needs: build
+    needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node.js and pnpm
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          registry-url: https://registry.npmjs.org/
-      - run: npm install -g pnpm
-      - run: pnpm install
+      - uses: setup
       - run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
